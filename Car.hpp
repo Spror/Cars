@@ -9,5 +9,9 @@ public:
     void turnRight();
     void brake();
     void accelerate(int speed);
+
+    virtual void refill() = 0;
+
+    virtual ~Car() = default;
 };
 

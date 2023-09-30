@@ -10,12 +10,14 @@ class PetrolCar : virtual public Car
 public:
     PetrolCar(PetrolEngine *engine);
     ~PetrolCar();
-    void refuel();
+    
 
 
     PetrolCar GetPetrolEngine() {return engine_;}
     void SetPetrolEngine(PetrolEngine* engine);
+    void refill() override;
 
 private:
     PetrolEngine *engine_;
+    void refuel();
 };
