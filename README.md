@@ -25,3 +25,5 @@ UWAGA: Praca domowa jest na gałęzi [diamond](https://github.com/coders-school/
 
 
 # Solution
+
+![Solution](../../Documents/Cars.png)
