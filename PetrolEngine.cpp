@@ -15,8 +15,17 @@ void PetrolEngine::changeGear(int gear)
     // TODO: Add checking if gear is between -1 and gears_
     // -1 is for REAR
     // 0 is for NEUTRAL
-    currentGear_ = gear;
-    std::cout << __FUNCTION__ << std::endl;
+
+    if(gear  < -1)
+        throw "Gear cannot be minus";
+    if(gear > gears_)
+        throw "Gear not avaliable";
+    if(gear == -1 && currentGear_ != 0)
+        throw "R means REAR not ROCKET!";
+
+
+    else
+        currentGear_ = gear;
 }
 
 void PetrolEngine::SetCapacity(float capacity)

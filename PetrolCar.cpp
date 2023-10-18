@@ -1,8 +1,8 @@
 #include "PetrolCar.hpp"
 
  
-PetrolCar::PetrolCar(PetrolEngine* engine)
-    : engine_(engine)
+PetrolCar::PetrolCar(std::unique_ptr<PetrolEngine> engine)
+    : engine_(std::move(engine))
 {
     std::cout << __FUNCTION__ << std::endl;
 }
@@ -10,14 +10,17 @@ PetrolCar::PetrolCar(PetrolEngine* engine)
 PetrolCar::~PetrolCar()         { std::cout << __FUNCTION__ << std::endl; }
 void PetrolCar::refuel()        { std::cout << __FUNCTION__ << std::endl; }
 
-void PetrolCar::SetPetrolEngine(PetrolEngine* engine)
+void  PetrolCar::SetPetrolEngine(std::unique_ptr<PetrolEngine> engine)
 {
-    if(engine_ != nullptr)
-        delete engine_;
-    engine_ = engine;
+    engine_ = std::move(engine);
 }
 
 void PetrolCar::refill()
 {
     refuel();
+}
+
+void PetrolCar::SetGear(int gear)
+{
+    engine_->changeGear(gear);
 }
