@@ -8,14 +8,9 @@ public:
     PetrolEngine(int power, float capacity, int gears);
     void changeGear(int gear);
 
-    class InvalidGear : public std::exception{
+    class InvalidGear : public std::logic_error{
         public:
-        InvalidGear(const char* message) : message_(message) {}
-        const char* what() const noexcept override {
-            return message_.c_str();
-        }
-        private:
-        std::string message_;
+        InvalidGear(const char* message) : std::logic_error(message) {}
     };
 
     float GetCapacity() {return capacity_;}

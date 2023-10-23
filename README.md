@@ -7,8 +7,6 @@
 
 ## Object-oriented C++
 
-UWAGA: Praca domowa jest na gałęzi [diamond](https://github.com/coders-school/Cars/tree/diamond). Kod tam to mój kod po lekcjach wideo i jest on inny niż ten na gałęzi main.
-
 ### Zadanie #1
 
 1. <!-- .element: class="fragment fade-in" --> Zaproponuj właściwą abstrakcję (interfejs)

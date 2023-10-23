@@ -18,3 +18,16 @@ void ElectricCar::refill()
 {
     charge();
 }
+
+bool ElectricCar::changeEngine(std::unique_ptr<ElectricEngine> engine)
+{
+    std::cout << "Electric Engine is changed";
+    if (getSpeed() != 0)
+        return false;
+
+    else{
+        engine_ = std::move(engine);
+        return true;
+    }
+        
+}

@@ -24,3 +24,17 @@ void PetrolCar::SetGear(int gear)
 {
     engine_->changeGear(gear);
 }
+
+bool PetrolCar::changeEngine(std::unique_ptr<PetrolEngine> engine)
+{
+    std::cout << "Petrol Engine is changed";
+    if(getSpeed() !=0)
+    {
+        return false;
+    }
+
+    else{
+        engine_= std::move(engine);
+        return true;
+    }
+}
