@@ -17,11 +17,11 @@ void PetrolEngine::changeGear(int gear)
     // 0 is for NEUTRAL
 
     if(gear  < -1)
-        throw "Gear cannot be minus";
+        throw InvalidGear("Gear cannot be negative");
     if(gear > gears_)
-        throw "Gear not avaliable";
+        throw InvalidGear("Gear not avaliable");
     if(gear == -1 && currentGear_ != 0)
-        throw "R means REAR not ROCKET!";
+        throw InvalidGear("Cannot change gear to reverse from a forward gear!");
 
 
     else
@@ -38,8 +38,3 @@ void PetrolEngine::SetGears(int gears)
     gears_ = gears;
 }
 
-
-void PetrolEngine::SetCurrentGear(int currentGear)
-{
-    currentGear_ = currentGear;
-}

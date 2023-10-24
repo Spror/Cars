@@ -20,6 +20,7 @@ public:
     virtual ~Car() = default;
 
 private:
+    virtual bool checkSpeed(int speed) = 0; 
     int speed = 0;
 };
 

@@ -10,6 +10,7 @@ int main()
 {
 
     std::vector<std::unique_ptr<Car>> cars_v;
+    
 
     std::cout << std::endl << "OPEL" << std::endl;
     PetrolCar opel(std::make_unique<PetrolEngine>(120, 1800, 6));

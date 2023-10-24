@@ -9,7 +9,7 @@
 class PetrolCar : virtual public Car
 {
 public:
-    PetrolCar() = default;
+   
     PetrolCar(std::unique_ptr<PetrolEngine> engine);
     ~PetrolCar();
     
@@ -19,10 +19,15 @@ public:
 
     void SetPetrolEngine(std::unique_ptr<PetrolEngine> engine);
     void SetGear(int gear);
+    int GetGear() const;
     void refill() override;
     bool changeEngine(std::unique_ptr<PetrolEngine> engine) override;
+    int getMaxSpeed() const {return maxSpeed_;}
+    
 
 private:
     std::unique_ptr<PetrolEngine>  engine_;
     void refuel();
+    unsigned int maxSpeed_ = 0;
+    bool checkSpeed(int speed) override;
 };
