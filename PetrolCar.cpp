@@ -5,7 +5,8 @@ PetrolCar::PetrolCar(std::unique_ptr<PetrolEngine> engine)
 {
 
     if (engine_.get() == nullptr)
-    {}
+    {
+    }
 
     else
     {

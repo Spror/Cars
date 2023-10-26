@@ -5,12 +5,13 @@ ElectricCar::ElectricCar(std::unique_ptr<ElectricEngine> engine)
 {
 
     if (engine_.get() == nullptr)
-    {}
+    {
+    }
 
     else
     {
         constexpr auto correctionFactor = 0.03;
-        maxSpeed_ = engine_->GetPower()* engine_->GetBatteryCapacity()  *correctionFactor;
+        maxSpeed_ = engine_->GetPower() * engine_->GetBatteryCapacity() * correctionFactor;
         std::cout << maxSpeed_;
     }
 }

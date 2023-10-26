@@ -4,7 +4,8 @@ HybridCar::HybridCar(std::unique_ptr<PetrolEngine> petrolEng, std::unique_ptr<El
     : ElectricCar(std::move(electricEng)), PetrolCar(std::move(petrolEng))
 {
     if (petrolEng == nullptr && electricEng == nullptr)
-    {}
+    {
+    }
 
     else if (petrolEng == nullptr)
     {
@@ -15,12 +16,11 @@ HybridCar::HybridCar(std::unique_ptr<PetrolEngine> petrolEng, std::unique_ptr<El
     {
         maxSpeed_ = PetrolCar::getMaxSpeed();
     }
-    
 
     else
     {
-        maxSpeed_ = PetrolCar::getMaxSpeed() + 0.2*ElectricCar::getMaxSpeed();
-    }   
+        maxSpeed_ = PetrolCar::getMaxSpeed() + 0.2 * ElectricCar::getMaxSpeed();
+    }
 }
 
 HybridCar::~HybridCar() { std::cout << __FUNCTION__ << std::endl; }
@@ -33,7 +33,7 @@ void HybridCar::refill()
 
 bool HybridCar::checkSpeed(int speed)
 {
-        if (speed > maxSpeed_)
+    if (speed > maxSpeed_)
     {
         return false;
     }

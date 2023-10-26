@@ -1,15 +1,15 @@
 #include "Car.hpp"
 
-void Car::turnLeft()      { std::cout << __FUNCTION__ << std::endl; }
-void Car::turnRight()     { std::cout << __FUNCTION__ << std::endl; }
-void Car::brake()         { std::cout << __FUNCTION__ << std::endl; }
+void Car::turnLeft() { std::cout << __FUNCTION__ << std::endl; }
+void Car::turnRight() { std::cout << __FUNCTION__ << std::endl; }
+void Car::brake() { std::cout << __FUNCTION__ << std::endl; }
 void Car::accelerate(int speed)
-{ 
-    if(speed < 0)
+{
+    if (speed < 0)
     {
         throw std::out_of_range("Speed cannot be negative");
     }
-    else if(checkSpeed(speed))
+    else if (checkSpeed(speed))
     {
         throw std::out_of_range("Maximum speed exceeded");
     }
@@ -18,5 +18,3 @@ void Car::accelerate(int speed)
         this->speed = speed;
     }
 }
-
-

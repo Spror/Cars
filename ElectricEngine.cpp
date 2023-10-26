@@ -10,4 +10,3 @@ void ElectricEngine::SetBatteryCapacity(int batteryCapacity)
 {
     batteryCapacity_ = batteryCapacity;
 }
-

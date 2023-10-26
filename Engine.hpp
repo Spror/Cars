@@ -7,7 +7,7 @@ public:
     Engine(int power);
     ~Engine();
 
-    int GetPower() {return power_;}
+    int GetPower() { return power_; }
     void SetPower(int power);
 
 private:
