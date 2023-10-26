@@ -30,8 +30,10 @@ TEST_F(Cars, GearChangingTest)
 
 TEST_F(Cars, AccelerateTest)
 {
-  EXPECT_NO_THROW(CarP.accelerate(100));
-  EXPECT_NO_THROW(CarE.accelerate(100));
+  CarP.accelerate(100);
+  CarE.accelerate(100);
+  EXPECT_EQ(CarP.getSpeed(), 100);
+  EXPECT_EQ(CarE.getSpeed(), 100);
 
   // accelerating of negative value
   EXPECT_THROW(CarP.accelerate(-10), std::out_of_range);
