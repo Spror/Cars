@@ -9,7 +9,7 @@ void Car::accelerate(int speed)
     {
         throw std::out_of_range("Speed cannot be negative");
     }
-    else if (checkSpeed(speed))
+    else if (!checkSpeed(speed))
     {
         throw std::out_of_range("Maximum speed exceeded");
     }

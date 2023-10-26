@@ -30,21 +30,16 @@ TEST_F(Cars, GearChangingTest)
 
 TEST_F(Cars, AccelerateTest)
 {
-
   EXPECT_NO_THROW(CarP.accelerate(100));
   EXPECT_NO_THROW(CarE.accelerate(100));
 
-  // shifting into negative a gear
-  EXPECT_THROW(CarP.accelerate(10), std::logic_error);
-  EXPECT_THROW(CarP.accelerate(10), std::logic_error);
+  // accelerating of negative value
+  EXPECT_THROW(CarP.accelerate(-10), std::out_of_range);
+  EXPECT_THROW(CarE.accelerate(-10), std::out_of_range);
 
-  // shifting into too high a gear
-  EXPECT_THROW(CarP.SetGear(8), std::logic_error);
-  EXPECT_THROW(CarP.accelerate(10), std::logic_error);
-
-  // shifting into reverse from a forward gear
-  EXPECT_THROW(CarP.SetGear(-1), std::logic_error);
-  EXPECT_THROW(CarP.accelerate(10), std::logic_error);
+  // exceeding maximum speed
+  EXPECT_THROW(CarP.accelerate(CarP.getMaxSpeed()+1), std::out_of_range);
+  EXPECT_THROW(CarE.accelerate(CarE.getMaxSpeed()+1), std::out_of_range);
 }
 
 int main(int argc, char **argv)
