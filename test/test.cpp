@@ -28,7 +28,7 @@ TEST_F(Cars, GearChangingTest)
   EXPECT_THROW(CarP.SetGear(-1), PetrolEngine::InvalidGear);
 }
 
-TEST_F(Cars, AccelerateTest)
+TEST_F(Cars, AccelerationTest)
 {
   CarP.accelerate(100);
   CarE.accelerate(100);
@@ -43,6 +43,22 @@ TEST_F(Cars, AccelerateTest)
   EXPECT_THROW(CarP.accelerate(CarP.getMaxSpeed()+1), std::out_of_range);
   EXPECT_THROW(CarE.accelerate(CarE.getMaxSpeed()+1), std::out_of_range);
 }
+
+TEST_F(Cars, BrakingTest)
+{
+  CarP.accelerate(100);
+  CarE.accelerate(100);
+  EXPECT_GT(CarP.getSpeed(), 0);
+  EXPECT_GT(CarE.getSpeed(), 0);
+
+  CarP.brake();
+  CarE.brake();
+  
+  EXPECT_EQ(CarP.getSpeed(), 0);
+  EXPECT_EQ(CarE.getSpeed(), 0);
+
+}
+
 
 int main(int argc, char **argv)
 {
